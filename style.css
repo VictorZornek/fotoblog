@@ -98,6 +98,60 @@ ul li.active {
     border-radius: 50%;
 }
 
+/* galeria */
+main h1 {
+    padding-top: 1.6rem;
+    font-size: 2.4rem;
+}
+
+.gallery {
+    margin-top: 3.2rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* utiliza o repeat() para que sejam criadas 3 colunas com itens de tamanho 1fr */
+    gap: 2.2rem;
+}
+
+.item {
+    background-color: var(--color-base-white);
+    border-radius: .8rem;
+    overflow: hidden; /* Utilize essa propriedade para que a imagem nas transborde para fora da caixa e possa aparecer as bordas */
+}
+
+.item img {
+    width: 100%;
+
+    aspect-ratio: 16/9; /* propriedade para definir a proporção da imagem */
+    object-fit: cover; /* use object-fit para cobrir essa proporção de 16/9 */
+}
+
+.item img:hover {
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%); 
+    /* filter serve para aplicar filtro em determinados elementos, bom para interação com usuário */
+}
+
+.details {
+    padding: 2.2rem;
+}
+
+.details h2 {
+    font-size: 1.8rem;
+}
+
+.tags {
+    margin-top: 1.2rem;
+}
+
+.tags span {
+    padding: .6rem;
+    background-color: var(--color-base-gray-100);
+    border-radius: .4rem;
+
+    line-height: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
 footer p {
     text-align: center;
     padding: 1.6rem;
