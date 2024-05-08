@@ -123,15 +123,28 @@ main h1 {
 
     aspect-ratio: 16/9; /* propriedade para definir a proporção da imagem */
     object-fit: cover; /* use object-fit para cobrir essa proporção de 16/9 */
+
+    /* propriedade transition serve para suavizar as transições de outras propriedades como a filter e transform */
+    transition-property: transform, filter;
+    transition-duration: 200ms;
+    transition-delay: 0;
+    transition-timing-function: ease-in;
+
+    /* shorthand -> transition: all 200ms ease-out;*/
 }
 
 .item img:hover {
     filter: hue-rotate(7deg) contrast(101%) saturate(200%); 
     /* filter serve para aplicar filtro em determinados elementos, bom para interação com usuário */
+    transform: scale(1.1) rotate(-2deg); 
+    /* use o transform para aumentar e rotacionar a imagem quando passar o mouse */
 }
 
 .details {
     padding: 2.2rem;
+    background-color: var(--color-base-white);
+    z-index: 1;
+    position: relative;
 }
 
 .details h2 {
