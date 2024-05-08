@@ -8,14 +8,14 @@
 
 :root {
     font-size: 62.5%;
-
-    --color-base-white: #ffffff;
-    --color-base-gray-100: #f5f5f5;
-    --color-base-gray-300: #8d8d99;
-    --color-base-gray-500: #3D3D3D;
-    --color-base-gray-900: #202024;
-
-}
+  
+    --hue: 100; /* Utilize o --hue como uma variavel para poder alterar as cores do site de forma mais dinamica */
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-gray-100: hsl(0, 0%, 96%);
+    --color-base-gray-300: hsl(var(--hue), 60%, 58%);
+    --color-base-gray-500: hsl(0, 0%, 24%);
+    --color-base-gray-900: hsl(var(--hue), 60%, 20%);
+  }
 
 html, body, input {
     font-family: 'Mulish', sans-serif;
@@ -131,6 +131,8 @@ main h1 {
     transition-timing-function: ease-in;
 
     /* shorthand -> transition: all 200ms ease-out;*/
+
+    display: block;
 }
 
 .item img:hover {
@@ -169,4 +171,41 @@ footer p {
     text-align: center;
     padding: 1.6rem;
     font-weight: 600;
+}
+
+header {
+    --startY: -100%; /* -> Define a variavel de inicio como -100% para animação começar de cima para baixo */
+    animation: move .2s;
+}
+
+footer {
+    --startY: 100%; /* -> Define a variavel de inicio como 100% para animação começar de baixo para cima */
+    animation: move .2s;
+}
+
+
+/* criação do @keyframes de movimento do header e footer da animação */
+@keyframes move {
+    from {
+        transform: translateY(var(--startY)); /* -> Define a position inicial como sendo a variavel --startY */
+    }
+}
+
+.item {
+    --delay: .4s; /* -> criação da var --delay para definir um delay para o surgimento dos itens no main*/
+    animation: appear 4s var(--delay) backwards;
+
+    /* IMPORTANTE: Para dar o efeito de cada item aparecer em sequencia, necessario definir no HTML o valor da var --delay de cada item */
+}
+
+/* criação do @keyframes para aparecer os itens do main */
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1);
+    }
 }
